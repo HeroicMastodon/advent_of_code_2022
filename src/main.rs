@@ -12,7 +12,7 @@ mod day_4;
 mod day_5;
 
 fn main() {
-day_5::problem_2();
+day_5::problem_1();
 }
 
 fn read_lines<P>(filename: P) -> std::io::Result<String>

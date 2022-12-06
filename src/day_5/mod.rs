@@ -1,3 +1,5 @@
+use std::iter::Map;
+use std::str::{FromStr, Lines};
 use crate::read_lines;
 use nom::branch::alt;
 use nom::bytes::complete::tag;
@@ -75,6 +77,45 @@ fn parse(input: &str) -> IResult<&str, (Vec<Vec<char>>, Vec<Move>)> {
     Ok((input, (crates, moves)))
 }
 
+fn parse_manual(input: &str) -> (Vec<Vec<char>>, Vec<Move>) {
+    let split = input.split("\n\n").collect::<Vec<&str>>();
+    let (stack_lines, move_lines) = (split[0].lines(), split[1].lines());
+    
+    let mut stacks: Vec<Vec<char>> = vec![];
+    
+    for line in stack_lines {
+        if stacks.is_empty() {
+            for _ in 0..=line.chars().count() / 4 {
+                stacks.push(vec![]);
+            }
+        }
+        
+        for stack in 0..stacks.len() {
+            let chars = line.chars().skip(stack * 4).take(4);
+            
+            for c in chars {
+                if c.is_alphabetic() {
+                    stacks.get_mut(stack).unwrap().push(c);
+                }
+            }
+        }
+    }
+
+    stacks = stacks.into_iter().map(|mut stack| {stack.reverse(); stack}).collect();
+    
+    let moves = move_lines.map(|line| {
+        let words = line.split(" ").collect::<Vec<&str>>();
+        
+        Move {
+            count: u32::from_str(words[1]).unwrap(),
+            from: u32::from_str(words[3]).unwrap() - 1,
+            to: u32::from_str(words[5]).unwrap() - 1
+        }
+    });
+
+    (stacks, moves.collect())
+}
+
 pub fn problem_1() {
     let file = read_lines("src/day_5/input.txt").unwrap();
     let input = "    [D]    
@@ -86,8 +127,9 @@ move 1 from 2 to 1
 move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2";
-    let (input, (mut crates, moves)) = parse(file.as_str()).unwrap();
+    // let (input, (mut crates, moves)) = parse(file.as_str()).unwrap();
     // let (input, (mut crates, moves)) = parse(input).unwrap();
+    let (mut crates, moves) = parse_manual(file.as_str());
 
     println!("{crates:#?}");
     println!("{moves:#?}");
