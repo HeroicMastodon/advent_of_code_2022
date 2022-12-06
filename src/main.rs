@@ -9,9 +9,10 @@ mod day_1;
 mod day_2;
 mod day_3;
 mod day_4;
+mod day_5;
 
 fn main() {
-day_4::day_4();
+day_5::problem_2();
 }
 
 fn read_lines<P>(filename: P) -> std::io::Result<String>
