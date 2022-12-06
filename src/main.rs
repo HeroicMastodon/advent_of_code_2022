@@ -10,12 +10,17 @@ mod day_2;
 mod day_3;
 mod day_4;
 mod day_5;
+mod day_6;
 
 fn main() {
-day_5::problem_1();
+day_6::problem_2();
 }
 
 fn read_lines<P>(filename: P) -> std::io::Result<String>
     where P: AsRef<Path>, {
     fs::read_to_string(filename)
+}
+
+fn read_input(day: &str) -> io::Result<String> {
+    fs::read_to_string(format!("src/{day}/input.txt"))
 }
