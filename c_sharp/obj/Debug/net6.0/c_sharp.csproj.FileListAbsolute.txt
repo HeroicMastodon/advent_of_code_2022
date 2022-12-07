@@ -1,0 +1,15 @@
+/home/garrick/Documents/personal/advent_of_code/c_sharp/bin/Debug/net6.0/c_sharp
+/home/garrick/Documents/personal/advent_of_code/c_sharp/bin/Debug/net6.0/c_sharp.deps.json
+/home/garrick/Documents/personal/advent_of_code/c_sharp/bin/Debug/net6.0/c_sharp.runtimeconfig.json
+/home/garrick/Documents/personal/advent_of_code/c_sharp/bin/Debug/net6.0/c_sharp.dll
+/home/garrick/Documents/personal/advent_of_code/c_sharp/bin/Debug/net6.0/ref/c_sharp.dll
+/home/garrick/Documents/personal/advent_of_code/c_sharp/bin/Debug/net6.0/c_sharp.pdb
+/home/garrick/Documents/personal/advent_of_code/c_sharp/obj/Debug/net6.0/c_sharp.csproj.AssemblyReference.cache
+/home/garrick/Documents/personal/advent_of_code/c_sharp/obj/Debug/net6.0/c_sharp.GeneratedMSBuildEditorConfig.editorconfig
+/home/garrick/Documents/personal/advent_of_code/c_sharp/obj/Debug/net6.0/c_sharp.AssemblyInfoInputs.cache
+/home/garrick/Documents/personal/advent_of_code/c_sharp/obj/Debug/net6.0/c_sharp.AssemblyInfo.cs
+/home/garrick/Documents/personal/advent_of_code/c_sharp/obj/Debug/net6.0/c_sharp.csproj.CoreCompileInputs.cache
+/home/garrick/Documents/personal/advent_of_code/c_sharp/obj/Debug/net6.0/c_sharp.dll
+/home/garrick/Documents/personal/advent_of_code/c_sharp/obj/Debug/net6.0/ref/c_sharp.dll
+/home/garrick/Documents/personal/advent_of_code/c_sharp/obj/Debug/net6.0/c_sharp.pdb
+/home/garrick/Documents/personal/advent_of_code/c_sharp/obj/Debug/net6.0/c_sharp.genruntimeconfig.cache
