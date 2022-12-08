@@ -3,7 +3,6 @@ use std::{fs, io};
 use std::io::BufRead;
 use std::path::Path;
 use std::str::FromStr;
-use day_7::run;
 
 const BASE_URL: &str = "/home/garrick/Documents/personal/advent_of_code/src";
 mod day_1;
@@ -13,9 +12,10 @@ mod day_4;
 mod day_5;
 mod day_6;
 mod day_7;
+mod day_8;
 
 fn main() {
-run();
+day_8::run();
 }
 
 fn read_lines<P>(filename: P) -> std::io::Result<String>

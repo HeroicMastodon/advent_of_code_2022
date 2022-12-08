@@ -1,4 +1,3 @@
-use nom::character::complete::u32;
 use std::collections::HashMap;
 use std::str::FromStr;
 
@@ -18,7 +17,7 @@ pub fn run() {
     println!("{:#?}", problem_2(input.to_string()));
 }
 
-pub fn problem_1(input: String) -> i32 {
+pub fn problem_1(input: String) -> u32 {
     let directory_sizes = process_input(input);
 
     let mut sum = 0;
@@ -31,7 +30,7 @@ pub fn problem_1(input: String) -> i32 {
     sum
 }
 
-pub fn problem_2(input: String) -> i32 {
+pub fn problem_2(input: String) -> u32 {
     let directory_sizes = process_input(input);
     let total_space = 70000000;
     let update_size = 30000000;
@@ -41,14 +40,14 @@ pub fn problem_2(input: String) -> i32 {
         .into_iter()
         .map(|(_, val)| val)
         .filter(|val| val >= &needed_space)
-        .collect::<Vec<i32>>();
+        .collect::<Vec<u32>>();
 
     filtered.sort();
 
     return *filtered.first().unwrap_or(&0);
 }
 
-fn process_input(input: String) -> HashMap<String, i32> {
+fn process_input(input: String) -> HashMap<String, u32> {
     let mut curr_dir = String::new();
     let mut directory_sizes = HashMap::new();
     let mut dir_stack = vec![];
@@ -72,10 +71,10 @@ fn process_input(input: String) -> HashMap<String, i32> {
             ["dir", _] => {}
             [size, _] => {
                 *directory_sizes.entry(curr_dir.clone()).or_insert(0) +=
-                    i32::from_str(size).unwrap_or(0);
+                    u32::from_str(size).unwrap_or(0);
                 for dir in &dir_stack {
                     *directory_sizes.entry(dir.clone()).or_insert(0) +=
-                        i32::from_str(size).unwrap_or(0);
+                        u32::from_str(size).unwrap_or(0);
                 }
             }
             _ => {}
