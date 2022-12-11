@@ -95,16 +95,6 @@ fn parse_input(input: String) -> Vec<Instruction> {
 }
 
 #[test]
-pub fn test_div() {
-    println!("{}:{}", 5, 5 / 40);
-    println!("{}:{}", 45, 45 / 40);
-    println!("{}:{}", 85, 85 / 40);
-    println!("{}:{}", 39, 39 / 40);
-    println!("{}:{}", 79, 79 / 40);
-    println!("{}:{}", 239, 240 / 40);
-}
-
-#[test]
 pub fn test() {
     let input = "addx 15
 addx -11
