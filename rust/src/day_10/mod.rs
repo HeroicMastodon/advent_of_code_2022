@@ -32,9 +32,7 @@ fn problem_1(input: String) -> i32 {
         .fold(0, |count, (idx, value)| {
             let offset_idx = idx as i32 - 20;
             if idx == 20 || offset_idx % 40 == 0 {
-                let result = count + (idx as i32) * value;
-                println!("{:#?}", &result);
-                result
+                count + (idx as i32) * value
             } else {
                 count
             }
@@ -251,7 +249,7 @@ noop";
 #####     #####     #####     #####     
 ######      ######      ######      ####
 #######       #######       #######     ";
-    println!("expected:\n{}", &input);
+    println!("expected:\n{}\n", &expected);
     let problem2 = problem_2(input.to_string());
     println!("actual:\n{}", &problem2);
     assert_eq!(expected, problem2);

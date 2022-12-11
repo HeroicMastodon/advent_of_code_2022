@@ -1,4 +1,4 @@
-use crate::{BASE_URL, read_lines};
+use crate::{read_lines};
 
 const ROCK: u32 = 1;
 const PAPER: u32 = 2;
@@ -9,9 +9,9 @@ const WIN: u32 = 6;
 
 pub fn day_2() {
     let file_name = "src/day_2/input.txt";
-    let file = read_lines(file_name).unwrap_or("".to_string());
+    let file = read_lines(file_name).unwrap_or_else(|_| "".to_string());
 
-    let result: u32 = file.split("\n").map(score_game).sum();
+    let result: u32 = file.split('\n').map(score_game).sum();
 
     println!("{result}")
 }

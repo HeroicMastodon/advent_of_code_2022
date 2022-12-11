@@ -1,8 +1,6 @@
-use std::fs::File;
+#![allow(dead_code)]
 use std::{fs, io};
-use std::io::BufRead;
 use std::path::Path;
-use std::str::FromStr;
 
 const BASE_URL: &str = "/home/garrick/Documents/personal/advent_of_code/src";
 mod day_1;
@@ -20,7 +18,7 @@ fn main() {
 day_10::run();
 }
 
-fn read_lines<P>(filename: P) -> std::io::Result<String>
+fn read_lines<P>(filename: P) -> io::Result<String>
     where P: AsRef<Path>, {
     fs::read_to_string(filename)
 }

@@ -7,7 +7,7 @@ pub fn run() {
 }
 
 fn problem_1(input: String) -> u32 {
-    let mut trees = input
+    let trees = input
         .lines()
         .map(|line| {
             let tree_line = line
@@ -96,7 +96,7 @@ fn problem_1(input: String) -> u32 {
 }
 
 fn problem_2(input: String) -> u32 {
-    let mut trees = input
+    let trees = input
         .lines()
         .map(|line| {
             let tree_line = line

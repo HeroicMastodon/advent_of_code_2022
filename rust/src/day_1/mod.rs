@@ -1,5 +1,3 @@
-use std::fs;
-use std::path::Path;
 use std::str::FromStr;
 use crate::{BASE_URL, read_lines};
 

@@ -1,13 +1,11 @@
-use std::iter::Map;
-use std::str::{FromStr, Lines};
+use std::str::{FromStr};
 use crate::read_lines;
 use nom::branch::alt;
 use nom::bytes::complete::tag;
 use nom::character::complete;
-use nom::character::complete::{alpha1, digit1, multispace1, newline, space0, space1};
-use nom::combinator::complete;
-use nom::multi::{many1, separated_list0, separated_list1};
-use nom::sequence::{delimited, preceded, separated_pair};
+use nom::character::complete::{alpha1, digit1, multispace1, newline, space1};
+use nom::multi::{many1, separated_list1};
+use nom::sequence::{delimited, preceded};
 use nom::IResult;
 
 #[derive(Debug)]
@@ -118,7 +116,7 @@ fn parse_manual(input: &str) -> (Vec<Vec<char>>, Vec<Move>) {
 
 pub fn problem_1() {
     let file = read_lines("src/day_5/input.txt").unwrap();
-    let input = "    [D]    
+    let _input = "    [D]    
 [N] [C]    
 [Z] [M] [P]
  1   2   3 
@@ -160,7 +158,7 @@ move 1 from 1 to 2";
 
 pub fn problem_2() {
     let file = read_lines("src/day_5/input.txt").unwrap();
-    let input = "    [D]    
+    let _input = "    [D]    
 [N] [C]    
 [Z] [M] [P]
  1   2   3 
@@ -169,7 +167,7 @@ move 1 from 2 to 1
 move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2";
-    let (input, (mut crates, moves)) = parse(file.as_str()).unwrap();
+    let (_input, (mut crates, moves)) = parse(file.as_str()).unwrap();
     // let (input, (mut crates, moves)) = parse(input).unwrap();
 
     println!("{crates:#?}");
