@@ -42,7 +42,7 @@ fn problem_2(input: String) -> u32 {
         .enumerate()
         .fold(1, |agg, (idx, packet)| {
             if packet == separator_one || packet == separator_two {
-                agg * ( idx as u32 + 1)
+                agg * (idx as u32 + 1)
             } else {
                 agg
             }
@@ -117,29 +117,25 @@ enum PacketValue {
 
 impl PacketValue {
     pub fn is_before(&self, other: &PacketValue) -> bool {
-        match self {
-            List(values) => match other {
-                List(other_values) => {
-                    for i in 0..values.len() {
-                        if i == other_values.len() {
-                            return false;
-                        }
-
-                        if values[i] == other_values[i] {
-                            continue;
-                        }
-
-                        return values[i].is_before(&other_values[i]);
+        match (self, other) {
+            (List(values), List(other_values)) => {
+                for i in 0..values.len() {
+                    if i == other_values.len() {
+                        return false;
                     }
 
-                    true
+                    if values[i] == other_values[i] {
+                        continue;
+                    }
+
+                    return values[i].is_before(&other_values[i]);
                 }
-                Val(other_val) => self.is_before(&List(vec![Val(*other_val)])),
-            },
-            Val(value) => match other {
-                List(_) => List(vec![Val(*value)]).is_before(other),
-                Val(other_val) => value <= other_val,
-            },
+
+                true
+            }
+            (Val(val), Val(other_val)) => val <= other_val,
+            (List(_), Val(other_val)) => self.is_before(&List(vec![Val(*other_val)])),
+            (Val(value), List(_)) => List(vec![Val(*value)]).is_before(other),
         }
     }
 }
