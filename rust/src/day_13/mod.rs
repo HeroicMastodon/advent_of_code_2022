@@ -1,7 +1,9 @@
 use crate::day_13::PacketValue::{List, Val};
 use nom::branch::alt;
+use nom::bytes::complete::tag;
 use nom::character::complete;
-use nom::multi::separated_list0;
+use nom::character::complete::newline;
+use nom::multi::{many0, separated_list0};
 use nom::sequence::delimited;
 use nom::IResult;
 use std::cmp::Ordering;
@@ -50,18 +52,13 @@ fn problem_2(input: String) -> u32 {
 }
 
 fn parse(input: String) -> Vec<PacketGroup> {
-    input
-        .split("\n\n")
-        .map(|group| {
-            let packets = group
-                .lines()
-                .map(|line| parse_list(line).unwrap().1)
-                .collect::<Vec<PacketValue>>();
-
-            PacketGroup {
-                left: packets[0].clone(),
-                right: packets[1].clone(),
-            }
+    separated_list0(tag("\n\n"), separated_list0(newline, parse_list))(input.as_str())
+        .unwrap()
+        .1
+        .iter()
+        .map(|group| PacketGroup {
+            left: group[0].clone(),
+            right: group[1].clone(),
         })
         .collect()
 }
