@@ -16,9 +16,10 @@ mod day_10;
 mod day_11;
 mod day_12;
 mod day_13;
+mod day_14;
 
 fn main() {
-day_13::run();
+day_14::run();
 }
 
 fn read_lines<P>(filename: P) -> io::Result<String>
