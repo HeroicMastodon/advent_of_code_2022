@@ -1,4 +1,4 @@
-use crate::day_9::Move::{Left, Right};
+use crate::day_09::Move::{Left, Right};
 use std::collections::HashSet;
 use std::str::FromStr;
 

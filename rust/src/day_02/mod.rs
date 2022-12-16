@@ -8,7 +8,7 @@ const DRAW: u32 = 3;
 const WIN: u32 = 6;
 
 pub fn day_2() {
-    let file_name = "src/day_2/input.txt";
+    let file_name = "src/day_02/input.txt";
     let file = read_lines(file_name).unwrap_or_else(|_| "".to_string());
 
     let result: u32 = file.split('\n').map(score_game).sum();

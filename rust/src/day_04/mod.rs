@@ -38,7 +38,7 @@ impl ElfRange {
 }
 
 pub fn day_4() {
-    let file = read_lines("src/day_4/input.txt").unwrap();
+    let file = read_lines("src/day_04/input.txt").unwrap();
 
     let lines = file.lines();
     let result = lines.fold(0, |acc, line| {

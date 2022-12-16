@@ -8,7 +8,7 @@ pub fn day_3() {
         .enumerate()
         .map(|(idx, char)| (char, ( idx + 1 ) as u32))
         .collect::<HashMap<char, u32>>();
-    let file_name = "src/day_3/input.txt";
+    let file_name = "src/day_03/input.txt";
     let file = read_lines(file_name).unwrap_or("".to_string());
     let lines = file.split("\n");
 

@@ -115,7 +115,7 @@ fn parse_manual(input: &str) -> (Vec<Vec<char>>, Vec<Move>) {
 }
 
 pub fn problem_1() {
-    let file = read_lines("src/day_5/input.txt").unwrap();
+    let file = read_lines("src/day_05/input.txt").unwrap();
     let _input = "    [D]    
 [N] [C]    
 [Z] [M] [P]
@@ -150,7 +150,7 @@ move 1 from 1 to 2";
 }
 
 pub fn problem_2() {
-    let file = read_lines("src/day_5/input.txt").unwrap();
+    let file = read_lines("src/day_05/input.txt").unwrap();
     let _input = "    [D]    
 [N] [C]    
 [Z] [M] [P]

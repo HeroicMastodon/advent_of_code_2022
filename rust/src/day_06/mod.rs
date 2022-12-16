@@ -14,13 +14,13 @@ fn find_unique(input: String, size: usize) -> u32 {
 }
 
 pub fn problem_1() {
-    let file = read_input("day_6").unwrap();
+    let file = read_input("day_06").unwrap();
     let result = find_unique(file, 4);
     println!("{result}");
 }
 
 pub fn problem_2() {
-    let file = read_input("day_6").unwrap();
+    let file = read_input("day_06").unwrap();
     let result = find_unique(file, 14);
     println!("{result}");
 }
