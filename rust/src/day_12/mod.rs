@@ -16,7 +16,7 @@ fn problem_1(input: String) -> u32 {
 }
 
 fn problem_2(input: String) -> u32 {
-    let (grid, start, end, limits, lowest_points) = parse(input);
+    let (grid, _start, end, limits, lowest_points) = parse(input);
     lowest_points
         .into_iter()
         .map(|point| shortest_path(&grid, point, &end, &limits).unwrap_or(u32::MAX))

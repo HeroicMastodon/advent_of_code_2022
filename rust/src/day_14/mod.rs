@@ -3,7 +3,7 @@ use nom::character::complete;
 use nom::character::complete::newline;
 use nom::multi::separated_list0;
 use nom::IResult;
-use std::collections::{BTreeSet, HashSet, VecDeque};
+use std::collections::{VecDeque};
 
 pub fn run() {
     let input = include_str!("input.txt");
@@ -15,7 +15,7 @@ pub fn run() {
 
 pub fn problem_2(input: &str) -> u32 {
     let paths = parse(input);
-    let (lower_limit, upper_limit) = (&paths).iter().fold(
+    let (_lower_limit, upper_limit) = (&paths).iter().fold(
         (Point::new(usize::MAX, 0), Point::new(0, 0)),
         |(lower_limit, upper_limit), path| {
             let mut min_x = lower_limit.x;

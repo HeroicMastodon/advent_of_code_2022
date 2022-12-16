@@ -3,7 +3,7 @@ use nom::branch::alt;
 use nom::bytes::complete::tag;
 use nom::character::complete;
 use nom::character::complete::newline;
-use nom::multi::{many0, separated_list0};
+use nom::multi::{separated_list0};
 use nom::sequence::delimited;
 use nom::IResult;
 use std::cmp::Ordering;
