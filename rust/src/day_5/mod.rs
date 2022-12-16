@@ -125,12 +125,7 @@ move 1 from 2 to 1
 move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2";
-    // let (input, (mut crates, moves)) = parse(file.as_str()).unwrap();
-    // let (input, (mut crates, moves)) = parse(input).unwrap();
     let (mut crates, moves) = parse_manual(file.as_str());
-
-    println!("{crates:#?}");
-    println!("{moves:#?}");
 
     for Move { count, from, to } in moves.into_iter() {
         for _ in 0..count {
@@ -142,7 +137,6 @@ move 1 from 1 to 2";
         }
     }
 
-    println!("{crates:#?}");
     let mut tops: Vec<char> = vec![];
     for c in crates.into_iter() {
         match c.last() {
@@ -153,7 +147,6 @@ move 1 from 1 to 2";
         }
     }
     println!("{:#?}", tops.into_iter().collect::<String>());
-    // let (crates, moves) = parse(file.into());
 }
 
 pub fn problem_2() {
@@ -168,10 +161,6 @@ move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2";
     let (_input, (mut crates, moves)) = parse(file.as_str()).unwrap();
-    // let (input, (mut crates, moves)) = parse(input).unwrap();
-
-    println!("{crates:#?}");
-    println!("{moves:#?}");
 
     for Move { count, from, to } in moves.into_iter() {
         let mut crates_to_move: Vec<char> = vec![];
@@ -190,7 +179,6 @@ move 1 from 1 to 2";
         }
     }
 
-    println!("{crates:#?}");
     let mut tops: Vec<char> = vec![];
     for c in crates.into_iter() {
         match c.last() {

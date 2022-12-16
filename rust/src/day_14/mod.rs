@@ -75,10 +75,8 @@ pub fn problem_2(input: &str) -> u32 {
     let start_point = Point::new(500, 0);
     let mut sand_count = 0;
     let mut sand_point = start_point;
-    let mut iter_count = 0;
 
     loop {
-        iter_count += 1;
         let down = Point::new(sand_point.x, sand_point.y + 1);
         if down.y > upper_limit.y {
             grid[sand_point.y][sand_point.x] = 'o';
@@ -115,9 +113,6 @@ pub fn problem_2(input: &str) -> u32 {
         sand_point = start_point;
     }
     
-    dbg!(iter_count);
-    // print_grid(&grid);
-
     sand_count
 }
 

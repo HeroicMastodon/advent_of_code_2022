@@ -5,6 +5,7 @@ use nom::character::complete;
 use nom::character::complete::newline;
 use nom::multi::separated_list0;
 use nom::IResult;
+use std::collections::HashSet;
 
 pub fn run() {
     let input = include_str!("input.txt");
@@ -19,6 +20,7 @@ pub fn problem_1(input: &str, target_y: i32) -> u32 {
     let pairs = parse(input);
     let mut lower_limit = i32::MAX;
     let mut upper_limit = i32::MIN;
+    let mut beacon_count = 0;
 
     for (sensor, beacon) in &pairs {
         let distance_from_beacon = sensor.distance(beacon);
@@ -33,13 +35,19 @@ pub fn problem_1(input: &str, target_y: i32) -> u32 {
         upper_limit = (sensor.x + offset).max(upper_limit);
     }
 
-    (lower_limit..=upper_limit)
-        .filter(|x| {
-            let point = Point::beacon(*x, target_y);
-            
-           !is_beacon(&pairs, &point) && is_sensed(&pairs, point)
-        })
-        .count() as u32
+    let unique_beacons = (&pairs)
+        .iter()
+        .map(|(_, beacon)| beacon)
+        .cloned()
+        .collect::<HashSet<Point>>();
+
+    for beacon in &unique_beacons {
+        if beacon.y == target_y && lower_limit <= beacon.x && beacon.x <= upper_limit {
+            beacon_count += 1;
+        }
+    }
+
+    (upper_limit - lower_limit - beacon_count + 1) as u32
 }
 
 pub fn problem_2(input: &str, limit: usize) -> u128 {

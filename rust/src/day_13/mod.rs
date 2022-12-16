@@ -20,7 +20,6 @@ fn problem_1(input: String) -> u32 {
     let groups = parse(input);
     groups.into_iter().enumerate().fold(0, |agg, (idx, group)| {
         if group.is_right_order() {
-            dbg!(idx);
             agg + idx as u32 + 1
         } else {
             agg

@@ -1,9 +1,7 @@
 use std::str::FromStr;
-use crate::{BASE_URL, read_lines};
 
 pub fn day_1() {
-    let file_name = BASE_URL.to_owned() + "/input.txt";
-    let file = read_lines(file_name).unwrap();
+    let file = include_str!("input.txt");
 
     let mut result = file
         .split("\n\n")
